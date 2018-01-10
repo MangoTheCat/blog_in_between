@@ -1,0 +1,49 @@
+---
+title: "blogpost_in_between"
+author: "Adnan Fiaz"
+date: "11 December 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(lubridate)
+dates <- seq.Date(from=lubridate::ymd("2017-01-01"), to=lubridate::ymd("2017-08-01"), by=20)
+df <- data.frame(Date=dates, ID = seq(length(dates)))
+
+
+library(dplyr)
+link <- data.frame(From=ymd("2017-01-01"), Num=1:12)
+link <- mutate(link, From1 = From %m+% months(Num))
+link <- mutate(link, To = From1, From = lag(From1))
+link$From[1] <- ymd("2017-01-01")
+link <- select(link, From, To) %>% mutate(Month = month.name)
+link
+```
+
+```{r}
+df %>% head(3)
+```
+```{r}
+link %>% head(3)
+```
+
+```{r}
+df %>% mutate(Dummy = 1) %>% 
+  left_join(link %>% mutate(Dummy = 1)) %>% 
+  filter(Date >= From, Date <= To) %>% 
+  select(-Dummy, -From, -To) %>% 
+  head(3)
+```
+
+
+
+
+
+
+
+
+
