@@ -186,7 +186,7 @@ This is a nice way of doing it in Python but it's definitely not as readable as 
 
 As you search for solutions to your own tasks you will undoubtedly come across many Stack Overflow questions and Github Issues. Hopefully, they will provide the answer to your question or at least guide you to one. When they do, don't forget to upvote or leave a friendly comment. When they don't, do not despair but see it as a challenge to contribute your own solution. In my case the issue had already been [reported](https://github.com/tidyverse/dplyr/issues/2240) and the **dplyr** developers are on it. I look forward to trying out their solution in the near future.
 
-The code for this post is available on Github. I welcome any feedback, please let me know via [Twitter](https://twitter.com/MangotheCat) or Github.
+The code for this post is available on [Github](https://github.com/MangoTheCat/blog_in_between). I welcome any feedback, please let me know via [Twitter](https://twitter.com/MangotheCat) or [Github](https://github.com/MangoTheCat/blog_in_between/issues).
 
 
 
