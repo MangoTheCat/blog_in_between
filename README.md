@@ -118,7 +118,7 @@ fuzzy_left_join(myData, linkTable,
 Again, this is exactly what we're looking for. Compared to the SQL alternative it takes a little more time to figure out what is going on but that is a minor disadvantage. On the other hand, now there is no need to go back and forth with a database backend. I haven't checked what the performance differences are, that is a little out of scope for this post.  
 
 ## If not dplyr then data.table
-I know it can be slightly annoying when someone answers your question about **dplyr** by saying it can be done in data.table but it's always good to keep an open mind. Especially when one solves a task the other can't (yet). It doesn't take much effort to convert from a data.frame to a data.table. From there we can use the `foverlaps` function to do a non-equi join (as it is referred to in data.table-speak). 
+I know it can be slightly annoying when someone answers your question about **dplyr** by saying it can be done in **data.table** but it's always good to keep an open mind. Especially when one solves a task the other can't (yet). It doesn't take much effort to convert from a data.frame to a data.table. From there we can use the `foverlaps` function to do a non-equi join (as it is referred to in data.table-speak). 
 
 
 ```r
@@ -146,7 +146,7 @@ result[, .(Record, SomeValue, ValueOfInterest)]
 Ok so I'm not very well versed in the data.table way of doing things. I'm sure there is a less verbose way but this will do for now. If you know the magical spell please let me know (through the links provided at the end).
 
 **Update 6-Feb-2018**<br>
-[Stefan Fritsch](https://github.com/MangoTheCat/blog_in_between/issues/1) provided the following (less verbose) way of doing it with data.table:
+[Stefan Fritsch](https://github.com/MangoTheCat/blog_in_between/issues/1) provided the following (less verbose) way of doing it with **data.table**:
 
 ```r
 linkTableDT[myDataDT, on = .(LowerBound <= SomeValue, UpperBound >= SomeValue),

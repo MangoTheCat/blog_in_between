@@ -194,7 +194,7 @@ fuzzy_left_join(myData, linkTable,
 </div>
 <div id="if-not-dplyr-then-data.table" class="section level2">
 <h2>If not dplyr then data.table</h2>
-<p>I know it can be slightly annoying when someone answers your question about <strong>dplyr</strong> by saying it can be done in data.table but it’s always good to keep an open mind. Especially when one solves a task the other can’t (yet). It doesn’t take much effort to convert from a data.frame to a data.table. From there we can use the <code>foverlaps</code> function to do a non-equi join (as it is referred to in data.table-speak).</p>
+<p>I know it can be slightly annoying when someone answers your question about <strong>dplyr</strong> by saying it can be done in <strong>data.table</strong> but it’s always good to keep an open mind. Especially when one solves a task the other can’t (yet). It doesn’t take much effort to convert from a data.frame to a data.table. From there we can use the <code>foverlaps</code> function to do a non-equi join (as it is referred to in data.table-speak).</p>
 <pre class="r"><code>library(data.table)
 # Attempt #4: Use the data.table package
 myDataDT &lt;- data.table(myData)
@@ -212,7 +212,7 @@ result[, .(Record, SomeValue, ValueOfInterest)]</code></pre>
 ## 4:      4         6              NA
 ## 5:      5         2               a</code></pre>
 <p>Ok so I’m not very well versed in the data.table way of doing things. I’m sure there is a less verbose way but this will do for now. If you know the magical spell please let me know (through the links provided at the end).</p>
-<p><strong>Update 6-Feb-2018</strong><br> <a href="https://github.com/MangoTheCat/blog_in_between/issues/1">Stefan Fritsch</a> provided the following (less verbose) way of doing it with data.table:</p>
+<p><strong>Update 6-Feb-2018</strong><br> <a href="https://github.com/MangoTheCat/blog_in_between/issues/1">Stefan Fritsch</a> provided the following (less verbose) way of doing it with <strong>data.table</strong>:</p>
 <pre class="r"><code>linkTableDT[myDataDT, on = .(LowerBound &lt;= SomeValue, UpperBound &gt;= SomeValue),
           .(Record, SomeValue, ValueOfInterest)]</code></pre>
 <pre><code>##    Record SomeValue ValueOfInterest
