@@ -145,6 +145,24 @@ result[, .(Record, SomeValue, ValueOfInterest)]
 
 Ok so I'm not very well versed in the data.table way of doing things. I'm sure there is a less verbose way but this will do for now. If you know the magical spell please let me know (through the links provided at the end).
 
+**Update 6-Feb-2018**<br>
+[Stefan Fritsch](https://github.com/MangoTheCat/blog_in_between/issues/1) provided the following (less verbose) way of doing it with data.table:
+
+```r
+linkTableDT[myDataDT, on = .(LowerBound <= SomeValue, UpperBound >= SomeValue),
+          .(Record, SomeValue, ValueOfInterest)]
+```
+
+```
+##    Record SomeValue ValueOfInterest
+## 1:      1        10               c
+## 2:      2         8              NA
+## 3:      3        14               c
+## 4:      4         6              NA
+## 5:      5         2               a
+```
+  
+
 ## The pythonic way
 
 Now that we're off the tidyverse-reservoir, we might as well go all the way. During my search I also encountered a [Python solution](https://stackoverflow.com/questions/40315997/python-pandas-merge-between-condition) that looked interesting. It involves using **pandas** and some matrix multiplication and works as follows (yes, you can run Python code in a [RMarkdown](http://rmarkdown.rstudio.com/authoring_knitr_engines.html) document).

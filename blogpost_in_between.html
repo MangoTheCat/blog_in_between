@@ -212,6 +212,15 @@ result[, .(Record, SomeValue, ValueOfInterest)]</code></pre>
 ## 4:      4         6              NA
 ## 5:      5         2               a</code></pre>
 <p>Ok so I’m not very well versed in the data.table way of doing things. I’m sure there is a less verbose way but this will do for now. If you know the magical spell please let me know (through the links provided at the end).</p>
+<p><strong>Update 6-Feb-2018</strong><br> <a href="https://github.com/MangoTheCat/blog_in_between/issues/1">Stefan Fritsch</a> provided the following (less verbose) way of doing it with data.table:</p>
+<pre class="r"><code>linkTableDT[myDataDT, on = .(LowerBound &lt;= SomeValue, UpperBound &gt;= SomeValue),
+          .(Record, SomeValue, ValueOfInterest)]</code></pre>
+<pre><code>##    Record SomeValue ValueOfInterest
+## 1:      1        10               c
+## 2:      2         8              NA
+## 3:      3        14               c
+## 4:      4         6              NA
+## 5:      5         2               a</code></pre>
 </div>
 <div id="the-pythonic-way" class="section level2">
 <h2>The pythonic way</h2>

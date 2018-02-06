@@ -9,7 +9,6 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, cache=TRUE, message=FALSE, warning=FALSE)
 library(tidyverse)
-library(lubridate)
 ```
 
 Joining two datasets is a common action we perform in our analyses. Almost all languages have a solution for this task: R has the built-in `merge` function or the family of `join` functions in the **dplyr** package, SQL has the `JOIN` operation and Python has the `merge` function from the **pandas** package. And without a doubt these cover a variety of use cases but there's always that one exception, that one use case that isn't covered by the obvious way of doing things.
@@ -92,6 +91,14 @@ result[, .(Record, SomeValue, ValueOfInterest)]
 ```
 
 Ok so I'm not very well versed in the data.table way of doing things. I'm sure there is a less verbose way but this will do for now. If you know the magical spell please let me know (through the links provided at the end).
+
+**Update 6-Feb-2018**<br>
+[Stefan Fritsch](https://github.com/MangoTheCat/blog_in_between/issues/1) provided the following (less verbose) way of doing it with data.table:
+```{r}
+linkTableDT[myDataDT, on = .(LowerBound <= SomeValue, UpperBound >= SomeValue),
+          .(Record, SomeValue, ValueOfInterest)]
+```
+  
 
 ## The pythonic way
 
